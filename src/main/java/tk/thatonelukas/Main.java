@@ -19,7 +19,7 @@ public class Main {
             System.exit(1);
         }
         LOGGER.info("first arg: \"" + args[0] + "\"");
-        if (args[0] == "nogui") {
+        if ("" + args[0] == "nogui") {
             LOGGER.info("first arg detected as nogui");
             args = Arrays.copyOfRange(args, 1, args.length);
         }
