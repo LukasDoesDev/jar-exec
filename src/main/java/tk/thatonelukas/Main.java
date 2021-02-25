@@ -14,14 +14,12 @@ public class Main {
 
     public static void main(String[] args) {
 
-        if (args == null || args.length < 1 || (args.length == 1 && args[0] == "nogui")) {
+        if (args == null || args.length < 1 || (args.length == 1 && args[0].equals("nogui"))) {
             LOGGER.warn("No input given, exiting");
             System.exit(1);
         }
         String firstArg = args[0];
-        LOGGER.info("first arg: \"" + firstArg + "\"");
         if (firstArg.equals("nogui")) {
-            LOGGER.info("first arg detected as nogui");
             args = Arrays.copyOfRange(args, 1, args.length);
         }
         String argStr = String.join(" ", args);
