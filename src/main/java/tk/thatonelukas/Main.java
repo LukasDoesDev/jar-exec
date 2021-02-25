@@ -12,13 +12,12 @@ public class Main {
 
     public static void main(String[] args) {
 
-        boolean debugging = true;
-        if (args == null || args.length < 1 && !debugging) {
+        if (args == null || args.length < 1 || (args.length == 1 && args[0] == "nogui")) {
             LOGGER.warn("No input given, exiting");
             System.exit(1);
         }
         if (args[0] == "nogui") {
-            String[] args = Arrays.copyOfRange(oldArr, 1, oldArr.length);
+            args = Arrays.copyOfRange(args, 1, args.length);
         }
         String argStr = String.join(" ", args);
         String cmd = argStr;
