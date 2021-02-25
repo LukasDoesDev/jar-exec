@@ -18,8 +18,9 @@ public class Main {
             LOGGER.warn("No input given, exiting");
             System.exit(1);
         }
-        LOGGER.info("first arg: \"" + args[0] + "\"");
-        if ("" + args[0] == "nogui") {
+        String firstArg = args[0];
+        LOGGER.info("first arg: \"" + firstArg + "\"");
+        if ("" + firstArg == "nogui") {
             LOGGER.info("first arg detected as nogui");
             args = Arrays.copyOfRange(args, 1, args.length);
         }
