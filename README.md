@@ -26,7 +26,7 @@ If you copied `jar-exec.jar` and the `dependency-jars` directory:
 java -jar jar-exec.jar "python tester.py"
 ```
 
-You can download tester.py from https://http://www.thatonelukas.tk/files/jar-exec/tester.py
+You can download tester.py from https://www.thatonelukas.tk/files/jar-exec/tester.py
 or get the file contents from here:
 ```py
 #!/usr/bin/python
