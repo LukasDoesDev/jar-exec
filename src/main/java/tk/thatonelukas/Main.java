@@ -17,14 +17,16 @@ public class Main {
             LOGGER.warn("No input given, exiting");
             System.exit(1);
         }
-        String arg1 = args[0];
+        if (args[0] == "nogui") {
+            String[] args = Arrays.copyOfRange(oldArr, 1, oldArr.length);
+        }
         String argStr = String.join(" ", args);
         String cmd = argStr;
 
         try {
 
-            LOGGER.info(cmd);
-            LOGGER.info(System.getProperty("user.dir"));
+            LOGGER.info("Launching with: " + cmd);
+            LOGGER.info("Launch dir: " + System.getProperty("user.dir"));
             Process process = Runtime.getRuntime().exec(cmd);
 
             childIn = new BufferedWriter( new OutputStreamWriter(process.getOutputStream()) );
