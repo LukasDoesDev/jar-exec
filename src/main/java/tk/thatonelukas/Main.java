@@ -18,6 +18,9 @@ public class Main {
             LOGGER.warn("No input given, exiting");
             System.exit(1);
         }
+        LOGGER.info("first arg" + args[0]);
+        LOGGER.info("second arg" + args[1]);
+        LOGGER.info("third arg" + args[2]);
         if (args[0] == "nogui") {
             args = Arrays.copyOfRange(args, 1, args.length);
         }
