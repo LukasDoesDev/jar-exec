@@ -20,6 +20,7 @@ public class Main {
         }
         LOGGER.info("first arg: \"" + args[0] + "\"");
         if (args[0] == "nogui") {
+            LOGGER.info("first arg detected as nogui");
             args = Arrays.copyOfRange(args, 1, args.length);
         }
         String argStr = String.join(" ", args);
