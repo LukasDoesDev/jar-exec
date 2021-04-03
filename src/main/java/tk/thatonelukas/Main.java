@@ -27,12 +27,13 @@ public class Main {
 
         try {
 
-            LOGGER.info("Launching with: " + cmd);
-            LOGGER.info("Launch dir: " + System.getProperty("user.dir"));
+            LOGGER.info("INFO ! Launching with: " + cmd);
+            LOGGER.info("INFO ! Launch dir: " + System.getProperty("user.dir"));
             Process process = Runtime.getRuntime().exec(cmd);
 
             childIn = new BufferedWriter( new OutputStreamWriter(process.getOutputStream()) );
             InputStream procOut = process.getInputStream();
+            InputStream procErr = process.getErrorStream();
 
             AsyncInput asyncInput = new AsyncInput(childIn, process);
             Thread inThread = new Thread(asyncInput);
@@ -42,10 +43,17 @@ public class Main {
             Thread outThread = new Thread(asyncOutput);
             outThread.start();
 
+            AsyncError asyncError = new AsyncError(procErr, process);
+            Thread errThread = new Thread(asyncError);
+            errThread.start();
+
             while (process.isAlive()) {}
+
+            LOGGER.info("INFO ! program quit");
 
             inThread.interrupt();
             outThread.interrupt();
+            errThread.interrupt();
             System.exit(0);
         }
 

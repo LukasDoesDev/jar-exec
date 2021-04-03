@@ -5,7 +5,6 @@ import org.apache.logging.log4j.Logger;
 
 import java.io.BufferedWriter;
 import java.io.InputStream;
-import java.io.OutputStream;
 
 public class AsyncInput implements Runnable {
     private InputStream inputStream;

@@ -5,14 +5,14 @@ import org.apache.logging.log4j.Logger;
 
 import java.io.InputStream;
 
-public class AsyncOutput implements Runnable {
+public class AsyncError implements Runnable {
     private InputStream procOut;
     private Process process;
     private String collection = "";
 
-    private static final Logger LOGGER = LogManager.getLogger(AsyncOutput.class);
+    private static final Logger LOGGER = LogManager.getLogger(AsyncError.class);
 
-    public AsyncOutput(InputStream procOut, Process process) {
+    public AsyncError(InputStream procOut, Process process) {
         this.procOut = procOut;
         this.process = process;
     }
@@ -27,7 +27,7 @@ public class AsyncOutput implements Runnable {
             // System.out.print(Character.toLowerCase(output));
             // System.out.print(output);
             if (output == '\n') {
-                LOGGER.info("stdout: " + collection);
+                LOGGER.info("stderr: " + collection);
                 collection = "";
             } else {
                 collection = collection + output;

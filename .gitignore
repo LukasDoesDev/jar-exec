@@ -4,6 +4,16 @@
 # https://github.com/github/gitignore/blob/master/Maven.gitignore
 #
 
+#                      #
+# -- MANUALLY ADDED -- #
+#                      #
+
+.classpath
+.factorypath
+.project
+.settings
+
+
 #            #
 # -- JAVA -- #
 #            #
