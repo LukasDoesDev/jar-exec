@@ -8,13 +8,15 @@ import java.io.InputStream;
 public class AsyncOutput implements Runnable {
     private InputStream procOut;
     private Process process;
+    private Boolean useDateTime;
     private String collection = "";
 
     private static final Logger LOGGER = LogManager.getLogger(AsyncOutput.class);
 
-    public AsyncOutput(InputStream procOut, Process process) {
+    public AsyncOutput(InputStream procOut, Process process, Boolean useDateTime) {
         this.procOut = procOut;
         this.process = process;
+        this.useDateTime = useDateTime;
     }
 
     private void getLogs() {
@@ -27,7 +29,7 @@ public class AsyncOutput implements Runnable {
             // System.out.print(Character.toLowerCase(output));
             // System.out.print(output);
             if (output == '\n') {
-                LOGGER.info("stdout: " + collection);
+                LOGGER.info(getDateTime() + "stdout: " + collection);
                 collection = "";
             } else {
                 collection = collection + output;
@@ -35,6 +37,11 @@ public class AsyncOutput implements Runnable {
         } catch (Exception err) {
             err.printStackTrace();
         }
+    }
+
+    private String getDateTime() {
+        if (!this.useDateTime) return "";
+        return java.time.LocalDate.now().toString() + " " + java.time.LocalTime.now().toString() + " - ";
     }
 
     public void run() {

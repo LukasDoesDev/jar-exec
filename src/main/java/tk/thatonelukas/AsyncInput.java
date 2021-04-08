@@ -12,7 +12,7 @@ public class AsyncInput implements Runnable {
     private Process process;
     private String collection = "";
 
-    private static final Logger LOGGER = LogManager.getLogger(AsyncInput.class);
+    // private static final Logger LOGGER = LogManager.getLogger(AsyncInput.class);
 
     public AsyncInput(BufferedWriter procIn, Process process) {
         this.procIn = procIn;
@@ -39,7 +39,6 @@ public class AsyncInput implements Runnable {
                     collection = collection + output;
                 }
             }
-            LOGGER.info("program quit");
         } catch (Exception err) {
             err.printStackTrace();
         }
