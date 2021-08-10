@@ -1,7 +1,7 @@
 # jar-exec
 > Executes a specified command passed in via an argument. Pipes stdin and stdout. Also puts logs to logs/latest.log to work with Crafty Controller. 
 
-[![forthebadge made-with-java](https://ForTheBadge.com/images/badges/made-with-java.svg)](https://java.com/)
+[![forthebadge made-with-java](https://forthebadge.com/images/badges/made-with-java.svg)](https://java.com/)
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
